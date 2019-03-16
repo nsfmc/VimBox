@@ -16,7 +16,7 @@ function! AirlineInit()
     let g:syntastic_stl_format = '%W{ }%E{  }'
     let errors = SyntasticStatuslineFlag()
     let len = strlen(errors)
-    " 0, No errors no warning. syntasticOk will take up all the space, 1, 
+    " 0, No errors no warning. syntasticOk will take up all the space, 1,
     if len == 0 || len == 1
       return ''
     endif
@@ -83,20 +83,20 @@ function! AirlineInit()
     return ''
   endfunction
 
-  call airline#parts#define_function('syntasticErrors', 'GetSyntasticErrors')
-  call airline#parts#define_function('syntasticWarnings', 'GetSyntasticWarnings')
-  call airline#parts#define_function('syntasticOk', 'GetSyntasticOk')
-  call airline#parts#define_minwidth('syntasticErrors', 30)
-  call airline#parts#define_minwidth('syntasticWarnings', 30)
+  " call airline#parts#define_function('syntasticErrors', 'GetSyntasticErrors')
+  " call airline#parts#define_function('syntasticWarnings', 'GetSyntasticWarnings')
+  " call airline#parts#define_function('syntasticOk', 'GetSyntasticOk')
+  " call airline#parts#define_minwidth('syntasticErrors', 30)
+  " call airline#parts#define_minwidth('syntasticWarnings', 30)
   " Might need to define a condition here?
-  call airline#parts#define_minwidth('syntasticOk', 30)
+  " call airline#parts#define_minwidth('syntasticOk', 30)
   " let g:airline_section_warning=airline#section#create(['whitespace', 'syntasticWarnings'])
-  let g:airline_section_warning=airline#section#create(['syntasticWarnings'])
-  let g:airline_section_error=airline#section#create(['syntasticErrors'])
+  " let g:airline_section_warning=airline#section#create(['syntasticWarnings'])
+  " let g:airline_section_error=airline#section#create(['syntasticErrors'])
   " create doesn't add in between separators - unlike create_right'
-  let g:airline_section_z=airline#section#create(['%3p%%'. g:airline_symbols.space, 'linenr',  ':%3v', 'syntasticOk'])
+  " let g:airline_section_z=airline#section#create(['%3p%%'. g:airline_symbols.space, 'linenr',  ':%3v', 'syntasticOk'])
 endfunction
-autocmd User AirlineAfterInit call AirlineInit()
+" autocmd User AirlineAfterInit call AirlineInit()
 
 if has("gui_macvim") || has("gui_vimr")
   autocmd VimEnter * set guioptions+=e

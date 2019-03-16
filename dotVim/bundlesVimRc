@@ -11,8 +11,14 @@ let s:homeFolder = $HOME
 let s:vimConfigDir = s:homeFolder . '/.vim'
 let s:vimPluginConfigDir = s:vimConfigDir . '/pluginRc'
 
+" ====================== gruvbox
+Plug 'morhetz/gruvbox'
+set background=dark    " Setting dark mode
+let g:gruvbox_contrast_dark = 'hard'
+
+
 " ========================== Jordwalke's fork of One ===========================
-Plug 'jordwalke/vim-one'
+" Plug 'jordwalke/vim-one'
 if !exists('g:one_allow_italics')
   " Italics don't typically render well in terminals
   let g:one_allow_italics = has('gui_running')
@@ -21,7 +27,7 @@ endif
 
 
 " ========================== Some colors ===========================
-Plug 'jordwalke/VimCleanColors'
+" Plug 'jordwalke/VimCleanColors'
 " ==============================================================================
 
 " ======================  Find And Replace =========================
@@ -333,13 +339,16 @@ let g:airline#extensions#quickfix#location_text = 'Diagnostics'
 " autocmd FileType ocaml sign define dummy
 " autocmd FileType ocaml execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
 " ==============================================================================
-let g:airline#extensions#whitespace#trailing_format = ' '
+
+
+" TODO(marcos): revisit this comment
+"let g:airline#extensions#whitespace#trailing_format = ' '
 
 
 
 
 " ==================================== TaskList ================================
-" Plug 'vim-scripts/TaskList.vim'
+Plug 'vim-scripts/TaskList.vim'
 " ==============================================================================
 
 
@@ -387,15 +396,15 @@ Plug 'jordwalke/flatlandia'
 
 
 " ================================= Solarized ==================================
-Plug 'altercation/vim-colors-solarized'
+"Plug 'altercation/vim-colors-solarized'
 "default value is 1
-let g:solarized_underline=0
+"let g:solarized_underline=0
 "default value is 16
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 "default value is normal
-let g:solarized_contrast="high"
+"let g:solarized_contrast="high"
 "default value is normal
-let g:solarized_visibility="high"
+"let g:solarized_visibility="high"
 " ==============================================================================
 
 
@@ -500,3 +509,38 @@ Plug 'AndrewRadev/undoquit.vim'
 map <D-T> <Esc>:Undoquit<CR>
 
 " ==============================================================================
+
+
+"===================================== Ale =====================================
+Plug 'w0rp/ale'
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_linters = {
+\   'javascript.jsx': ['eslint', 'flow'],
+\   'javascript': ['eslint', 'flow'],
+\}
+
+" format on save
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\  'javascript.jsx': ['prettier', 'eslint'],
+\  'javascript': ['prettier', 'eslint'],
+\  'css': ['prettier'],
+\  'scss': ['prettier'],
+\  'json': ['prettier'],
+\  'markdown': ['prettier'],
+\}
+
+map <leader>f :ALEFix<CR>
+
+
+"===================================== Ack =====================================
+" Plug 'mileszs/ack.vim'
+
+"================================= Gruvbox =====================================
+"Plug 'morhetz/gruvbox'
+" set background=dark    " Setting dark mode
+"let g:gruvbox_contrast_dark = 'hard'
+"colorscheme gruvbox
+
+
