@@ -461,6 +461,9 @@ let g:NERDCustomDelimiters = { 'reason': { 'left': '/*','right': '*/', 'nested':
 " I suspect this is doing nothing since JavaScript-Indent overwrites the
 " indentation hooks, but I cannot prove it.
 Plug 'pangloss/vim-javascript'
+let g:javascript_plugin_flow = 1
+let g:javascript_plugin_jsdoc = 1
+
 " ==============================================================================
 
 " =============================Javascript-Indent================================
