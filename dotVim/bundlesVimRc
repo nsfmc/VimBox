@@ -537,6 +537,10 @@ let g:ale_fixers = {
 map <leader>f :ALEFix<CR>
 
 
+
+"=============================== surround =================================
+Plug 'tpope/vim-surround'
+
 "===================================== Ack =====================================
 " Plug 'mileszs/ack.vim'
 
